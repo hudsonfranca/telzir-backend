@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import DddController from './controllers/DddController';
 import PlansController from './controllers/PlansController';
+import PriceController from './controllers/PriceController';
 
 const routes = Router();
 
@@ -17,5 +18,12 @@ routes.delete('/plan/:id', PlansController.Delete);
 routes.get('/plan/:id', PlansController.show);
 routes.put('/plan/:id', PlansController.update);
 routes.get('/plan', PlansController.index);
+
+// PLANS ROUTES //
+routes.post('/price', PriceController.store);
+routes.delete('/price/:id', PriceController.Delete);
+routes.get('/price/:id', PriceController.show);
+routes.put('/price/:id', PriceController.update);
+routes.get('/price', PriceController.index);
 
 export default routes;

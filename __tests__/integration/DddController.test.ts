@@ -15,6 +15,7 @@ afterAll(async () => {
 beforeEach(async () => {
     return connection.clear();
 });
+
 describe('DDD store', () => {
     it('should create a DDD', async () => {
         const response = await request(app).post('/ddd').send({
