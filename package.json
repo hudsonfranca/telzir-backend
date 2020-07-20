@@ -37,7 +37,6 @@
     },
     "scripts": {
         "test": "cross-env NODE_ENV=test jest  --no-cache",
-        "test:server": "cross-env NODE_ENV=test ts-node src/server.ts  ",
         "dev:server": "cross-env NODE_ENV=development nodemon src/server.ts --ignore __tests__",
         "migration:generate": "cross-env NODE_ENV=development npx ts-node ./node_modules/typeorm/cli.js migration:generate -n Initialize",
         "migration:run": "cross-env NODE_ENV=development npx ts-node ./node_modules/typeorm/cli.js migration:run",

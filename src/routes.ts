@@ -19,7 +19,7 @@ routes.get('/plan/:id', PlansController.show);
 routes.put('/plan/:id', PlansController.update);
 routes.get('/plan', PlansController.index);
 
-// PLANS ROUTES //
+// PRICE ROUTES //
 routes.post('/price', PriceController.store);
 routes.delete('/price/:id', PriceController.Delete);
 routes.get('/price/:id', PriceController.show);
