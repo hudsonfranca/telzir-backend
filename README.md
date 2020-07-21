@@ -59,6 +59,7 @@
 
 ## ENDPOINTS
 
+-   [ Compare prices with plan and without plan](#compare-prices-with-plan-and-without-plan)
 -   [Create a DDD](#create-a-ddd)
 -   [Get list of DDDs](#get-list-of-ddds)
 -   [Get a specific DDD](#get-a-specific-ddd)
@@ -74,6 +75,31 @@
 -   [Get a specific Price](#get-a-specific-price)
 -   [Delete a Price](#delete-a-Price)
 -   [Update Price data](#update-price-data)
+
+### Compare prices with plan and without plan
+
+#### Request
+
+`GET /calculate-price`
+
+    http://localhost:3333/calculate-price
+
+`BODY`
+
+    {
+        "minutes":80,
+        "priceId":1,
+        "planId":1
+    }
+
+#### Response
+
+    {
+        "priceWithPlan": 37.4,
+        "priceWithoutPlan": 136
+    }
+
+---
 
 ### Create a DDD
 
@@ -356,13 +382,37 @@
             "id": 1,
             "price": "30.00",
             "createdAt": "2020-07-19T11:47:42.000Z",
-            "updatedAt": "2020-07-19T11:47:42.000Z"
+            "updatedAt": "2020-07-19T11:47:42.000Z",
+            "source": {
+            "id": 2,
+            "code": 11,
+            "createdAt": "2020-07-19T11:40:06.531Z",
+            "updatedAt": "2020-07-19T11:40:06.531Z"
+            },
+            "destination": {
+            "id": 1,
+            "code": 12,
+            "createdAt": "2020-07-19T04:23:24.291Z",
+            "updatedAt": "2020-07-19T04:23:24.291Z"
+            }
         },
         {
             "id": 3,
             "price": "20.00",
             "createdAt": "2020-07-19T19:43:08.553Z",
-            "updatedAt": "2020-07-19T19:43:08.553Z"
+            "updatedAt": "2020-07-19T19:43:08.553Z",
+            "source": {
+            "id": 1,
+            "code": 12,
+            "createdAt": "2020-07-19T04:23:24.291Z",
+            "updatedAt": "2020-07-19T04:23:24.291Z"
+            },
+            "destination": {
+            "id": 1,
+            "code": 12,
+            "createdAt": "2020-07-19T04:23:24.291Z",
+            "updatedAt": "2020-07-19T04:23:24.291Z"
+            }
         }
     ]
 
@@ -382,7 +432,19 @@
         "id": 3,
         "price": "20.00",
         "createdAt": "2020-07-19T19:43:08.553Z",
-        "updatedAt": "2020-07-19T19:43:08.553Z"
+        "updatedAt": "2020-07-19T19:43:08.553Z",
+        "source": {
+            "id": 1,
+            "code": 12,
+            "createdAt": "2020-07-19T04:23:24.291Z",
+            "updatedAt": "2020-07-19T04:23:24.291Z"
+        },
+        "destination": {
+            "id": 1,
+            "code": 12,
+            "createdAt": "2020-07-19T04:23:24.291Z",
+            "updatedAt": "2020-07-19T04:23:24.291Z"
+        }
     }
 
 ---

@@ -5,7 +5,9 @@ import DDD from '../entity/DDD';
 
 export async function index(req: Request, res: Response) {
     try {
-        const price = await getRepository(Price).find();
+        const price = await getRepository(Price).find({
+            relations: ['source', 'destination'],
+        });
 
         return res.status(200).json(price);
     } catch (error) {
@@ -35,7 +37,9 @@ export async function show(req: Request, res: Response) {
     const { id } = req.params;
 
     try {
-        const price = await getRepository(Price).findOne(id);
+        const price = await getRepository(Price).findOne(id, {
+            relations: ['source', 'destination'],
+        });
 
         if (!price) {
             return res.status(400).json({ error: `Id ${id} does not exist` });

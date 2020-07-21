@@ -5,7 +5,8 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     Column,
-    PrimaryColumn,
+    BeforeInsert,
+    BeforeUpdate,
 } from 'typeorm';
 import DDD from './DDD';
 
@@ -26,8 +27,18 @@ export default class Price {
     })
     public source!: DDD;
 
-    @Column('decimal', { precision: 5, scale: 2 })
+    @Column()
     price: number;
+
+    @BeforeInsert()
+    setPrice(): void {
+        this.price = Math.round(this.price * 100);
+    }
+
+    @BeforeUpdate()
+    updatePrice(): void {
+        this.price = Math.round(this.price * 100);
+    }
 
     @CreateDateColumn()
     createdAt: Date;

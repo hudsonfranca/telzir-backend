@@ -2,6 +2,7 @@ import { Router } from 'express';
 import DddController from './controllers/DddController';
 import PlansController from './controllers/PlansController';
 import PriceController from './controllers/PriceController';
+import CalculatePriceController from './controllers/CalculatePriceController';
 
 const routes = Router();
 
@@ -25,5 +26,8 @@ routes.delete('/price/:id', PriceController.Delete);
 routes.get('/price/:id', PriceController.show);
 routes.put('/price/:id', PriceController.update);
 routes.get('/price', PriceController.index);
+
+// CALCULATE PRICE ROUTES //
+routes.get('/calculate-price', CalculatePriceController.show);
 
 export default routes;
