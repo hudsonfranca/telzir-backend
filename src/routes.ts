@@ -28,6 +28,6 @@ routes.put('/price/:id', PriceController.update);
 routes.get('/price', PriceController.index);
 
 // CALCULATE PRICE ROUTES //
-routes.get('/calculate-price', CalculatePriceController.show);
+routes.post('/calculate-price', CalculatePriceController.show);
 
 export default routes;

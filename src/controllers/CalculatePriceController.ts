@@ -23,7 +23,7 @@ export async function show(req: Request, res: Response) {
 
     const result = utils.calculatePrice(plan.minutes, minutes, price.price);
 
-    return res.status(200).json(result);
+    return res.status(200).json({ result, planName: plan.name });
 }
 
 export default { show };

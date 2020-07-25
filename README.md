@@ -80,7 +80,7 @@
 
 #### Request
 
-`GET /calculate-price`
+`POST /calculate-price`
 
     http://localhost:3333/calculate-price
 
