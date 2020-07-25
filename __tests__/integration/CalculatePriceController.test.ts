@@ -25,7 +25,7 @@ describe('CalculatePriceController Show', () => {
         plan.name = 'Fale mais 20';
 
         const createdPlan = await getRepository(Plans).save(plan);
-        const response = await request(app).get('/calculate-price').send({
+        const response = await request(app).post('/calculate-price').send({
             minutes: 20,
             priceId: 10,
             planId: createdPlan.id,
@@ -56,7 +56,7 @@ describe('CalculatePriceController Show', () => {
 
         const createdPlan = await getRepository(Plans).save(plan);
 
-        const response = await request(app).get('/calculate-price').send({
+        const response = await request(app).post('/calculate-price').send({
             minutes: 20,
             priceId: createdPrice.id,
             planId: createdPlan.id,
@@ -81,7 +81,7 @@ describe('CalculatePriceController Show', () => {
 
         const createdPrice = await getRepository(Price).save(price);
 
-        const response = await request(app).get('/calculate-price').send({
+        const response = await request(app).post('/calculate-price').send({
             minutes: 20,
             priceId: createdPrice.id,
             planId: 20,
